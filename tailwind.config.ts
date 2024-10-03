@@ -9,11 +9,18 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        background: "#FFFFFF",
+        foreground: "#000000",
+      },
+      fontFamily: {
+        'manuka-bold': ['var(--manuka-bold)', 'sans-serif'],
+        'messina-bold': ['var(--messina-bold)', 'sans-serif'],
+        'messina-semi-bold': ['var(--messina-semi-bold)', 'sans-serif'],
+        'messina-light': ['var(--messina-light)', 'sans-serif'],
       },
     },
   },
   plugins: [],
 };
+
 export default config;
