@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL")
+}
+
+model Taste {
+  id          Int      @id @default(autoincrement())
+  taste       String
+  description String?
+  imagePath   String?
+  recipes     Recipe[]
+
+  @@map("tastes")
+}
+
+model Recipe {
+  id          Int           @id @default(autoincrement())
+  name        String
+  description String?
+  prepTime    Int
+  cookTime    Int
+  serves      Int
+  tasteId     Int
+  taste       Taste         @relation(fields: [tasteId], references: [id])
+  ingredients Ingredient[]
+  steps       Step[]
+  tips        Tip[]
+  images      Image[]
+  tools       Tool[]
+
+  @@map("recipes")
+}
+
+model Ingredient {
+  id         Int    @id @default(autoincrement())
+  recipeId   Int
+  measure    String?
+  qt         Float?
+  ingredient String
+  recipe     Recipe @relation(fields: [recipeId], references: [id])
+
+  @@map("ingredients")
+}
+
+model Step {
+  id            Int     @id @default(autoincrement())
+  recipeId      Int
+  step          String
+  specification String?
+  recipe        Recipe  @relation(fields: [recipeId], references: [id])
+  images        Image[]
+
+  @@map("steps")
+}
+
+model Tip {
+  id       Int    @id @default(autoincrement())
+  recipeId Int
+  tip      String
+  recipe   Recipe @relation(fields: [recipeId], references: [id])
+
+  @@map("tips")
+}
+
+model Image {
+  id       Int    @id @default(autoincrement())
+  recipeId Int
+  stepId   Int
+  path     String
+  recipe   Recipe @relation(fields: [recipeId], references: [id])
+  step     Step   @relation(fields: [stepId], references: [id])
+
+  @@map("images")
+}
+
+model Tool {
+  id       Int    @id @default(autoincrement())
+  recipeId Int
+  tool     String
+  recipe   Recipe @relation(fields: [recipeId], references: [id])
+
+  @@map("tools")
+}
