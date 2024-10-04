@@ -43,7 +43,7 @@ const Logo: React.FC<LogoProps> = ({ version = "sm" }) => {
         SERENA .&nbsp;
       </Typography>
       <Typography variant={tagVariant} className={margin}>
-        food & bev
+        food <span style={{fontFamily: 'var(--font-inter-bold-italic)'}}>&</span> bev
       </Typography>
     </div>
   );

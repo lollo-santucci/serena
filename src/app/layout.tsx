@@ -1,7 +1,14 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+import { Inter } from 'next/font/google'
 import "./globals.css";
 
+const interBold = Inter({
+  subsets: ['latin'],
+  weight: '700',
+  style: 'italic',
+  variable: '--font-inter-bold-italic',
+})
 const manukaBold = localFont({
   src: "../../public/fonts/Manuka-Bold.woff2",
   variable: "--font-manuka-bold",
@@ -32,7 +39,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${manukaBold.variable} ${messinaBold.variable} ${messinaSemiBold.variable} ${messinaLight.variable} antialiased`}
+        className={`${interBold.variable} ${manukaBold.variable} ${messinaBold.variable} ${messinaSemiBold.variable} ${messinaLight.variable} antialiased`}
       >
         {children}
       </body>
