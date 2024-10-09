@@ -1,5 +1,11 @@
+import Logo from "@/components/atoms/Logo";
+import Navigation from "@/components/molecules/Navigation";
+
 export default function Home() {
   return (
-    <h1>Hello World!</h1>
+    <>
+      <Logo version="bg-row" />
+      <Navigation/>
+    </>
   );
 }
