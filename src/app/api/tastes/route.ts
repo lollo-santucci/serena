@@ -9,6 +9,13 @@ export async function GET() {
     const tastes = await prisma.taste.findMany();
     return NextResponse.json(tastes, { status: 200 });
   } catch (error) {
-    return NextResponse.json({ error: 'Errore durante il recupero dei tastes' }, { status: 500 });
+    console.error('Errore durante il recupero dei tastes:', error);
+    return NextResponse.json(
+      { error: 'Errore durante il recupero dei tastes' },
+      { status: 500 }
+    );
+  } finally {
+    // Chiude il client Prisma per evitare perdita di memoria
+    await prisma.$disconnect();
   }
 }
