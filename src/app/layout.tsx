@@ -15,8 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`
-        ${interBold.variable} ${manukaBold.variable} ${messinaBold.variable} ${messinaSemiBold.variable} ${messinaLight.variable} antialiased
-        p-6`}>
+        ${interBold.variable} ${manukaBold.variable} ${messinaBold.variable} ${messinaSemiBold.variable} ${messinaLight.variable} antialiased`}>
         {children}
       </body>
     </html>
