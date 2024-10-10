@@ -16,6 +16,8 @@ const NavLink: React.FC<NavLinkProps> = ({ href, children, variant = 'sm' }) => 
     underline-offset-4 
     transition-all 
     duration-300
+    mx-4
+    my-2
   `;
 
   return (

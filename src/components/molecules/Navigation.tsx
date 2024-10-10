@@ -21,7 +21,7 @@ const Navigation: React.FC<NavigationProps> = ({ variant = 'row' }) => {
   }, []);
 
   return (
-    <nav className={`flex ${variant === 'row' ? 'flex-row justify-between' : 'flex-col justify-between'}`}>
+    <nav className={`flex ${variant === 'row' ? 'flex-row justify-between' : 'flex-col justify-between items-center w-full my-2'}`}>
       {tastes.map((taste) => (
         <NavLink
           key={taste.id}
