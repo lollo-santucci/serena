@@ -7,6 +7,7 @@ const prisma = new PrismaClient();
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
+    const searchQuery = searchParams.get('search') || '';
     const tasteId = searchParams.get('tasteId');
 
     // Creiamo un oggetto di filtro dinamico
@@ -18,9 +19,14 @@ export async function GET(request: Request) {
 
     // Recupera tutte le ricette che corrispondono ai filtri
     const recipes = await prisma.recipe.findMany({
-      where,
+      where: {
+        name: {
+          startsWith: searchQuery,
+          mode: 'insensitive',
+        },
+      },
       include: {
-        taste: false,
+        taste: true,
       },
     });
 
