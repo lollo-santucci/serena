@@ -1,10 +1,8 @@
 import Checkbox from "@/components/atoms/Checkbox";
 import Typography from "@/components/atoms/Typography";
 
-type ItemVersion = "ingredient" | "tool";
-
 interface ListItemProps {
-    version: ItemVersion;
+    version: "ingredient" | "tool";
     name: string;
     quantity?: string;
     unit?: string;
