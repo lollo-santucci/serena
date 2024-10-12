@@ -4,16 +4,21 @@ import Stats from "@/components/molecules/Stats";
 import StatItem from "@/components/atoms/StatItem";
 
 interface RecipeProps {
+    variant?: "list" | "recommended";
     imgPath: string;
     title: string;
     stats: { title: string; value: string }[];
 }
 
-const Recipe: React.FC<RecipeProps> = ({ imgPath, title, stats }) => {
+const Recipe: React.FC<RecipeProps> = ({ variant = "list", imgPath, title, stats }) => {
+    const isRecommended = variant === "recommended";
+
     return (
         <section className="w-full flex flex-row justify-between items-center">
             <div className="flex items-center uppercase">
-                <div className="aspect-square relative -mr-4" style={{ width: 'clamp(100px, 20vw, 180px)' }}>
+                <div
+                    className="aspect-square relative -mr-2"
+                    style={{width: isRecommended ? 'clamp(50px, 5vw, 100px)' : 'clamp(100px, 20vw, 180px)'}}>
                     <Image
                         src={imgPath}
                         alt={`Image of ${title}`}
@@ -22,14 +27,16 @@ const Recipe: React.FC<RecipeProps> = ({ imgPath, title, stats }) => {
                     />
                 </div>
                 <div className="z-10 uppercase">
-                    <Typography variant="h1">{title}</Typography>
+                    <Typography variant={isRecommended ? "h4" : "h1"}>{title}</Typography>
                 </div>
             </div>
-            <div className="md:hidden">
-                <StatItem title={stats[0].title} value={stats[0].value} />
-            </div>
-            <div className="hidden md:block">
-                <Stats stats={stats} />
+            <div className={`${isRecommended ? "hidden" : "block"}`}>
+                <div className="md:hidden">
+                    <StatItem title={stats[0].title} value={stats[0].value} />
+                </div>
+                <div className="hidden md:block">
+                    <Stats stats={stats} />
+                </div>
             </div>
         </section>
     );
