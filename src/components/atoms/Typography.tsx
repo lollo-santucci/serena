@@ -23,7 +23,7 @@ const variantClasses: Record<TypographyVariant, string> = {
   'h1': 'text-h1 font-manuka-bold uppercase',
   'h2': 'text-h2 font-manuka-bold uppercase',
   'h3': 'text-h3 font-messina-bold',
-  'h4': 'text-h4 font-messina-semi-bold',
+  'h4': 'text-h4 font-manuka-bold',
   'h5': 'text-h5 font-messina-semi-bold',
   'base': 'text-base font-messina-light',
   'sm': 'text-sm font-messina-light',
