@@ -11,7 +11,7 @@ interface RecipeProps {
 
 const Recipe: React.FC<RecipeProps> = ({ imgPath, title, stats }) => {
     return (
-        <section className="flex flex-row justify-between items-center md:items-end">
+        <section className="w-full flex flex-row justify-between items-center">
             <div className="flex items-center uppercase">
                 <div className="aspect-square relative -mr-4" style={{ width: 'clamp(100px, 20vw, 180px)' }}>
                     <Image
@@ -21,7 +21,7 @@ const Recipe: React.FC<RecipeProps> = ({ imgPath, title, stats }) => {
                         className="object-cover"
                     />
                 </div>
-                <div className="z-10">
+                <div className="z-10 uppercase">
                     <Typography variant="h1">{title}</Typography>
                 </div>
             </div>
