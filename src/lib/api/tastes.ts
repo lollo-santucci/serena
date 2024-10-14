@@ -1,4 +1,4 @@
-import { Taste } from '@/types'; 
+import { Taste } from '@/types';
 
 const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -13,6 +13,7 @@ export async function fetchTastes(): Promise<Taste[]> {
         }
 
         return await response.json();
+
     } catch (error) {
         console.error('Errore durante il recupero dei tastes:', error);
         return [];
