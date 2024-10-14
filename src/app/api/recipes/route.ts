@@ -3,7 +3,7 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-// GET - Recupera le ricette con possibilità di filtrare per tasteId
+// GET - Recupera le ricette con possibilità di filtrare per tasteId o searchQuery
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
@@ -13,20 +13,22 @@ export async function GET(request: Request) {
     // Creiamo un oggetto di filtro dinamico
     const where: any = {};
 
+    if (searchQuery) {
+      where.name = {
+        startsWith: searchQuery,
+        mode: 'insensitive',
+      };
+    }
+
     if (tasteId) {
       where.tasteId = parseInt(tasteId);
     }
 
     // Recupera tutte le ricette che corrispondono ai filtri
     const recipes = await prisma.recipe.findMany({
-      where: {
-        name: {
-          startsWith: searchQuery,
-          mode: 'insensitive',
-        },
-      },
+      where,
       include: {
-        taste: true,
+        taste: false,
       },
     });
 
