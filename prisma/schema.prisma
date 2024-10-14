@@ -25,15 +25,16 @@ model Recipe {
   cookTime    Int
   serves      Int
   tasteId     Int
+  imagePath   String? 
   taste       Taste         @relation(fields: [tasteId], references: [id])
   ingredients Ingredient[]
   steps       Step[]
   tips        Tip[]
-  images      Image[]
-  tools       Tool[]
+  tools       Tool[]       
 
   @@map("recipes")
 }
+
 
 model Ingredient {
   id         Int    @id @default(autoincrement())
@@ -68,10 +69,8 @@ model Tip {
 
 model Image {
   id       Int    @id @default(autoincrement())
-  recipeId Int
   stepId   Int
   path     String
-  recipe   Recipe @relation(fields: [recipeId], references: [id])
   step     Step   @relation(fields: [stepId], references: [id])
 
   @@map("images")

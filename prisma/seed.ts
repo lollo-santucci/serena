@@ -21,6 +21,7 @@ async function main() {
   }
 
   // Seed Recipe
+  // Seed Recipe
   const sacher = await prisma.recipe.upsert({
     where: { id: 1 },
     update: {},
@@ -32,6 +33,7 @@ async function main() {
       cookTime: 40,
       serves: 2,
       tasteId: 1, // Dolce
+      imagePath: 'img/recipes/sacher.webp',  // Aggiungi il campo imagePath
     },
   })
 
@@ -85,8 +87,8 @@ async function main() {
 
   // Seed Images
   const images = [
-    { recipeId: 1, stepId: 2, path: 'img/1/2/1.webp' },
-    { recipeId: 1, stepId: 2, path: 'img/1/2/2.webp' },
+    { stepId: 2, path: 'img/1/2/1.webp' },
+    { stepId: 2, path: 'img/1/2/2.webp' },
   ]
 
   for (const image of images) {
@@ -106,4 +108,3 @@ main()
   .finally(async () => {
     await prisma.$disconnect()
   })
-  
