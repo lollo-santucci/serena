@@ -1,27 +1,17 @@
-'use client';
+'use client'
 
-import { useEffect, useState } from 'react';
 import { usePathname } from 'next/navigation';
 import NavLink from '@/components/atoms/NavLink';
 import { Taste } from '@/types'; // Import the Taste type
-import { fetchTastes } from '@/lib/api/tastes';
 
 interface NavigationProps {
   variant?: 'row' | 'column';
+  tastes: Taste[];
 }
 
-const Navigation: React.FC<NavigationProps> = ({ variant = 'row' }) => {
-  const [tastes, setTastes] = useState<Taste[]>([]);
+const Navigation: React.FC<NavigationProps> = ({ tastes, variant = 'row' }) => {
   const pathname = usePathname(); // Get the current pathname
-  console.log(pathname, tastes);
-  useEffect(() => {
-    const loadTastes = async () => {
-      const data = await fetchTastes();
-      setTastes(data);
-    };
-    loadTastes();
-  }, []);
-
+  
   return (
     <nav className={`flex ${variant === 'row' ? 'flex-row justify-between' : 'flex-col justify-between items-center w-full my-2'}`}>
       {tastes.map((taste) => (
