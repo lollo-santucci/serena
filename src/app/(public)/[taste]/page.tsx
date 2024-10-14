@@ -1,4 +1,3 @@
-import { GetStaticPropsContext } from "next";
 import type { Taste } from "@/types";
 import type { Recipe } from "@/types";
 import { fetchTastes } from "@/lib/api/tastes";
