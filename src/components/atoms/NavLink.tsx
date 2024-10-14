@@ -23,7 +23,7 @@ const NavLink: React.FC<NavLinkProps> = ({ active = "false", href, children, var
   `;
 
   return (
-      <Link href={href} className={linkClasses}>
+      <Link href={`/${href}`} className={linkClasses}>
         {children}
       </Link>
   );
