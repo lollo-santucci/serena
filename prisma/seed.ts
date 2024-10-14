@@ -33,7 +33,7 @@ async function main() {
       cookTime: 40,
       serves: 2,
       tasteId: 1, // Dolce
-      imagePath: 'img/recipes/sacher.webp',  // Aggiungi il campo imagePath
+      imagePath: '/imgs/recipes/sacher.webp',  // Aggiungi il campo imagePath
     },
   })
 
