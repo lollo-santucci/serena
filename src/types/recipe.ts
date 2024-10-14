@@ -6,4 +6,5 @@ export interface Recipe {
     cookTime: number;
     serves: number;
     tasteId: number;
+    imagePath?: string;
 }
