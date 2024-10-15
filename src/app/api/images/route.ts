@@ -3,29 +3,24 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-// GET - Recupera le immagini con possibilità di filtrare per recipeId o stepId
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
-    const recipeId = searchParams.get('recipeId');
-    const stepId = searchParams.get('stepId');
+    const stepIds = searchParams.getAll('stepId');
 
     // Creiamo un oggetto di filtro dinamico
     const where: any = {};
 
-    if (recipeId) {
-      where.recipeId = parseInt(recipeId);
-    }
-
-    if (stepId) {
-      where.stepId = parseInt(stepId);
+    if (stepIds.length > 0) {
+      where.stepId = {
+        in: stepIds.map(id => parseInt(id))
+      };
     }
 
     // Recupera tutte le immagini che corrispondono ai filtri
     const images = await prisma.image.findMany({
       where,
       include: {
-        recipe: false,
         step: false,
       },
     });
@@ -48,7 +43,6 @@ export async function POST(request: Request) {
     const body = await request.json();
     const newImage = await prisma.image.create({
       data: {
-        recipeId: body.recipeId,
         stepId: body.stepId,
         path: body.path,
       },
@@ -72,7 +66,6 @@ export async function PUT(request: Request) {
     const updatedImage = await prisma.image.update({
       where: { id: body.id },
       data: {
-        recipeId: body.recipeId,
         stepId: body.stepId,
         path: body.path,
       },
