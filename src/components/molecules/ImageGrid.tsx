@@ -1,8 +1,9 @@
+import type { Image as ImageType } from "@/types";
 import React from 'react';
 import Image from 'next/image';
 
 interface ImageGridProps {
-  images: { path: string }[];
+  images: ImageType[];
 }
 
 const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
@@ -14,7 +15,7 @@ const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
           className="w-full md:w-[calc(50%-1rem)] aspect-square"
         >
           <Image
-            src={image.path}
+            src={image.path || "/imgs/placeholder.png"}
             alt={`Image ${index + 1}`}
             width={500}
             height={500}
