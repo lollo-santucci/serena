@@ -1,6 +1,6 @@
-export default function debounce<T extends (...args: any[]) => void>(func: T, wait: number) {
-  let timeout: ReturnType<typeof setTimeout>;  // Compatibile sia con browser che con Node.js
-  return function executedFunction(...args: Parameters<T>) {  // Usa Parameters<T> per tipizzare args
+export default function debounce<T extends (...args: any[]) => void>(func: T, wait: number): (...args: Parameters<T>) => void {
+  let timeout: ReturnType<typeof setTimeout>; 
+  return function executedFunction(...args: Parameters<T>) {  
     const later = () => {
       clearTimeout(timeout);
       func(...args);

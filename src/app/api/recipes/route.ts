@@ -11,7 +11,7 @@ export async function GET(request: Request) {
     const tasteId = searchParams.get('tasteId');
 
     // Creiamo un oggetto di filtro dinamico
-    const where: any = {};
+    const where: Record<string, unknown> = {};
 
     if (searchQuery) {
       where.name = {
