@@ -1,9 +1,11 @@
+import type { Step as StepType } from "@/types";
+import type { Tip as TipType } from "@/types";
 import Step from "@/components/molecules/Step";
 import Tip from "@/components/molecules/Tip";
 
 interface StepsProps {
-    steps: { step: string; specification?: string; images?: { path: string }[]; }[];
-    tip?: string;
+    steps: StepType[];
+    tip?: TipType;
 }
 
 const Steps: React.FC<StepsProps> = ({ steps, tip }) => {
@@ -12,7 +14,7 @@ const Steps: React.FC<StepsProps> = ({ steps, tip }) => {
             <ol className="list-none">
                 {steps.map((step, index) => (
                     <li key={index} className="relative mb-4">
-                        <Step index={index + 1} step={step.step} specification={step.specification} images={step.images} />
+                        <Step n={index + 1} step={step} images={step.images}/>
                     </li>
                 ))}
             </ol>

@@ -5,11 +5,11 @@ import { fetchRecipes } from "@/lib/api/recipes";
 import Header from "@/components/organisms/Header";
 import Recipes from "@/components/organisms/Recipes";
 
-interface RecipePageProps {
+interface TastePageProps {
   taste: string;
 }
 
-export default async function Taste({ params }: { params: RecipePageProps }) {
+export default async function Taste({ params }: { params: TastePageProps }) {
   const taste = params.taste;
   const tastes: Taste[] = await fetchTastes();
   const tasteId = tastes.find((t) => t.taste === taste)?.id;
