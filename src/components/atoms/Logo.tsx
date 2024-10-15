@@ -36,12 +36,16 @@ const Logo: React.FC<LogoProps> = ({ version = "sm", space = "space" }) => {
 
   return (
     <div className={finalContainerStyle}>
-      <Typography variant={logoVariant}>
-        SERENA .&nbsp;
-      </Typography>
-      <Typography variant={tagVariant} className={margin}>
-        food <span style={{fontFamily: 'var(--font-inter-bold-italic)'}}>&</span> bev
-      </Typography>
+      <a href="/">
+        <Typography variant={logoVariant}>
+          SERENA .&nbsp;
+        </Typography>
+      </a>
+      <a href="/">
+        <Typography variant={tagVariant} className={margin}>
+          food <span style={{ fontFamily: 'var(--font-inter-bold-italic)' }}>&</span> bev
+        </Typography>
+      </a>
     </div>
   );
 };
