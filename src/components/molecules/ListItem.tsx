@@ -13,10 +13,11 @@ const ListItem: React.FC<ListItemProps> = ({ version, name, quantity, unit }) =>
 
     return (
         <div className="flex items-center justify-between py-1">
-            <div className="flex items-center">
+            <div className="flex items-center gap-3">
                 <Checkbox />
                 <Typography variant="sm" className={`text-right ${isTool ? "hidden" : ""} className="w-[4ch] text-right block`}>
-                    <span className="w-[3ch] text-right">{unit === "null" ? " " : unit}</span> <span className="w-[3ch] text-right">{quantity || " "}</span>
+                    <span className="inline-block w-[3ch] text-right">{unit === 'null' ? "-" : unit}</span>
+                    <span className="inline-block w-[4ch] text-right">{quantity === 'null' ? "-" : quantity}</span>
                 </Typography>
                 <Typography variant="sm" className="ml-2">{name}</Typography>
             </div>

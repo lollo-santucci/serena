@@ -8,11 +8,11 @@ interface ImageGridProps {
 
 const ImageGrid: React.FC<ImageGridProps> = ({ images }) => {
   return (
-    <div className="flex flex-wrap gap-4 justify-center">
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
       {images.map((image, index) => (
         <div
           key={index}
-          className="w-full md:w-[calc(50%-1rem)] aspect-square"
+          className="relative aspect-square w-full"
         >
           <Image
             src={image.path || "/imgs/placeholder.png"}

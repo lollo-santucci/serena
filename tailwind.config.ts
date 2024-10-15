@@ -56,11 +56,11 @@ const config: Config = {
         },
         '.text-h2': {
           fontSize: '30px',
-          [`@media (min-width: ${md})`]: { fontSize: '80px' },
+          [`@media (min-width: ${md})`]: { fontSize: '60px' },
         },
         '.text-h3': {
           fontSize: '30px',
-          [`@media (min-width: ${md})`]: { fontSize: '64px' },
+          [`@media (min-width: ${md})`]: { fontSize: '40px' },
         },
         '.text-h4': {
           fontSize: '30px',
@@ -68,11 +68,11 @@ const config: Config = {
         },
         '.text-h5': {
           fontSize: '30px',
-          [`@media (min-width: ${md})`]: { fontSize: '40px' },
+          [`@media (min-width: ${md})`]: { fontSize: '28px' },
         },
         '.text-base': {
           fontSize: '18px',
-          [`@media (min-width: ${md})`]: { fontSize: '32px' },
+          [`@media (min-width: ${md})`]: { fontSize: '26px' },
         },
         '.text-sm': {
           fontSize: '18px',
@@ -80,7 +80,7 @@ const config: Config = {
         },
         '.text-xs': {
           fontSize: '12px',
-          [`@media (min-width: ${md})`]: { fontSize: '18px' },
+          [`@media (min-width: ${md})`]: { fontSize: '12px' },
         },
         '.text-xxs': {
           fontSize: '8px',

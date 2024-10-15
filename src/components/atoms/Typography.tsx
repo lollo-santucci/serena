@@ -22,13 +22,13 @@ const variantClasses: Record<TypographyVariant, string> = {
   'nav-sm': 'text-nav-sm font-messina-bold',
   'h1': 'text-h1 font-manuka-bold uppercase',
   'h2': 'text-h2 font-manuka-bold uppercase',
-  'h3': 'text-h3 font-messina-bold',
+  'h3': 'text-h3 font-messina-bold tracking-tight',
   'h4': 'text-h4 font-manuka-bold',
-  'h5': 'text-h5 font-messina-semi-bold',
-  'base': 'text-base font-messina-light',
-  'sm': 'text-sm font-messina-light',
-  'xs': 'text-xs font-messina-light',
-  'xxs': 'text-xxs font-messina-light'
+  'h5': 'text-h5 font-messina-bold tracking-tight',
+  'base': 'text-base font-messina-light tracking-tight',
+  'sm': 'text-sm font-messina-light tracking-tight',
+  'xs': 'text-xs font-messina-light tracking-tight',
+  'xxs': 'text-xxs font-messina-light tracking-tight'
 };
 
 const htmlTags: Record<TypographyVariant, keyof JSX.IntrinsicElements> = {

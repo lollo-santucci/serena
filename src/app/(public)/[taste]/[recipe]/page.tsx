@@ -9,7 +9,7 @@ import Steps from "@/components/organisms/Steps";
 import Recipes from "@/components/organisms/Recipes";
 
 interface RecipePageProps {
-  recipe: string; 
+  recipe: string;
 }
 
 export default async function Recipe({ params }: { params: RecipePageProps }) {
@@ -19,7 +19,7 @@ export default async function Recipe({ params }: { params: RecipePageProps }) {
   return (
     <>
       <Header tastes={tastes} variant="sm" />
-      <main>
+      <main className="flex flex-col py-8 px-8 md:px-24 gap-16">
         <Headline
           title={recipe.name}
           stats={[
@@ -28,22 +28,24 @@ export default async function Recipe({ params }: { params: RecipePageProps }) {
             { title: "Porzioni", value: `${recipe.serves}` },
           ]}
         />
-        <section className="flex flex-col md:flex-row justify-center items-center">
-          <Image
-            src={recipe.imagePath ?? "/imgs/placeholder.png"}
-            alt={recipe.name}
-            width={500}
-            height={500}
-            priority={true}
-          />
+        <section className="flex flex-col md:flex-row justify-between items-center md:mx-12">
+        <div className="relative h-[50vh] w-[50vh] aspect-square">
+            <Image
+              src={recipe.imagePath ?? "/imgs/placeholder.png"}
+              alt={recipe.name}
+              layout="fill"  // Usa fill per assicurare che l'immagine riempia il contenitore
+              objectFit="cover"  // Mantieni il rapporto d'aspetto
+              priority={true}
+            />
+          </div>
           <List ingredients={ingredients} />
         </section>
         <section className="flex flex-col justify-between items-center">
           <Steps steps={steps} tip={tips[0]} />
         </section>
-        <section className="flex flex-col md:flex-row justify-center items-center">
-          <Recipes variant="recommended" title="Altre ricette" recipes={suggestions} />
+        <section className="flex flex-col md:flex-row justify-between items-center">
           <List variant="tool" tools={tools} />
+          <Recipes variant="recommended" title="Altre ricette" recipes={suggestions} />
         </section>
       </main>
     </>

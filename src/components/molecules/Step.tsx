@@ -11,10 +11,15 @@ interface StepProps {
 
 const Step: React.FC<StepProps> = ({ n, step, images }) => {
     return (
-        <div className="flex flex-col mx-6 gap-2">
-            <Typography variant="h5">{n}.&nbsp;{step.step}</Typography>
-            <Typography variant="base">&nbsp;&nbsp;&nbsp;&nbsp;{step.specification}</Typography>
-            {images && <ImageGrid images={images} />}
+        <div className="flex flex-col mx-6 text-justify">
+            <Typography variant="h5" className="flex items-start">
+                <span className="mr-2">{n}.</span>
+                <div className="flex flex-col gap-3">
+                    <span>{step.step}</span>
+                    <Typography variant="base">{step.specification}</Typography>
+                    {images && <ImageGrid images={images} />}
+                </div>
+            </Typography>
         </div>
     );
 };

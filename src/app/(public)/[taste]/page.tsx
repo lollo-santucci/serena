@@ -18,7 +18,7 @@ export default async function Taste({ params }: { params: TastePageProps }) {
   return (
     <>
     <Header tastes={tastes} variant="sm" />
-      <main>
+      <main className="flex flex-col py-8 px-8 md:px-24 gap-16">
         <Recipes title={taste} recipes={recipes} />
       </main>
     </>

@@ -13,7 +13,7 @@ const List: React.FC<ListPros> = ({ variant = "ingredient", ingredients, tools }
     const items = variant === "ingredient" ? ingredients : tools;
 
     return (
-        <section>
+        <section className="flex flex-col gap-3">
             <Typography variant="h3">
                 {variant === "ingredient" ? "Ingredienti" : "Strumenti"}
             </Typography>
