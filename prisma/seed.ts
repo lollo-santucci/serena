@@ -87,8 +87,8 @@ async function main() {
 
   // Seed Images
   const images = [
-    { stepId: 2, path: 'img/1/2/1.webp' },
-    { stepId: 2, path: 'img/1/2/2.webp' },
+    { stepId: 2, path: '/imgs/placeholder.webp' },
+    { stepId: 2, path: '/imgs/placeholder.webp' },
   ]
 
   for (const image of images) {
