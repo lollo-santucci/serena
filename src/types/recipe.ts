@@ -1,3 +1,5 @@
+import type { Taste } from '@/types/taste';
+
 export interface Recipe {
     id: number;
     name: string;
@@ -7,4 +9,5 @@ export interface Recipe {
     serves: number;
     tasteId: number;
     imagePath?: string;
+    taste?: Taste;
 }

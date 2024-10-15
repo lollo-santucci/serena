@@ -11,6 +11,7 @@ export default async function Home() {
     <>
       <Logo version="bg" />
       <Navigation tastes={tastes} variant="row" />
+      <Search />
     </>
   );
 }

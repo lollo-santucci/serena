@@ -10,7 +10,7 @@ export async function GET(request: Request) {
     const recipeId = searchParams.get('recipeId');
 
     // Creiamo un oggetto di filtro dinamico
-    const where: any = {};
+    const where: Record<string, unknown> = {};
 
     if (recipeId) {
       where.recipeId = parseInt(recipeId);

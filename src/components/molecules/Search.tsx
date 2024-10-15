@@ -3,11 +3,12 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import debounce from '@/lib/debounce';
+import type { Recipe } from '@/types';
 import { fetchRecipes } from '@/lib/api/recipes';
 
 const Search = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [suggestions, setSuggestions] = useState<any[]>([]);
+  const [suggestions, setSuggestions] = useState<Recipe[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
@@ -56,7 +57,7 @@ const Search = () => {
           <li
             key={recipe.id}
             className="px-4 py-2 hover:bg-gray-200 hover:rounded-lg cursor-pointer"
-            onClick={() => handleSuggestionClick(recipe.taste.taste, recipe.name)}
+            onClick={() => recipe.taste && handleSuggestionClick(recipe.taste.taste, recipe.name)}
           >
             {recipe.name}
           </li>

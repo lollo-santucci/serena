@@ -9,7 +9,7 @@ export async function GET(request: Request) {
     const stepIds = searchParams.getAll('stepId');
 
     // Creiamo un oggetto di filtro dinamico
-    const where: any = {};
+    const where: Record<string, unknown> = {};
 
     if (stepIds.length > 0) {
       where.stepId = {

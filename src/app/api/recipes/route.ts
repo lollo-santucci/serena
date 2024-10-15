@@ -28,7 +28,7 @@ export async function GET(request: Request) {
     const recipes = await prisma.recipe.findMany({
       where,
       include: {
-        taste: false,
+        taste: true,
       },
     });
 

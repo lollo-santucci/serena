@@ -27,7 +27,7 @@ export async function fetchRecipes(searchTerm?: string, tasteId?: number): Promi
         if (!response.ok) {
             throw new Error('Errore durante il recupero delle ricette');
         }
-
+        console.log('response', response);
         return await response.json();
     } catch (error) {
         console.error('Errore durante il recupero delle ricette:', error);
