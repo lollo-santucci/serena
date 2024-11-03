@@ -17,9 +17,9 @@ export default async function Recipe({ params }: { params: RecipePageProps }) {
   const { tastes, recipe, ingredients, steps, tips, tools, suggestions } = await getRecipePageData(recipeId);
 
   return (
-    <>
-      <Header tastes={tastes} variant="sm" />
-      <main className="flex flex-col py-8 px-8 md:px-24 gap-16">
+    <div className="p-6">
+      <Header tastes={tastes} />
+      <main className="flex flex-col py-8 px-12 md:px-52 gap-16">
         <Headline
           title={recipe.name}
           stats={[
@@ -48,7 +48,7 @@ export default async function Recipe({ params }: { params: RecipePageProps }) {
           <Recipes variant="recommended" title="Altre ricette" recipes={suggestions} />
         </section>
       </main>
-    </>
+    </div>
   );
 }
 

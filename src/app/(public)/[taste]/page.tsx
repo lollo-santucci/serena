@@ -16,12 +16,12 @@ export default async function Taste({ params }: { params: TastePageProps }) {
   const recipes: Recipe[] = await fetchRecipes('', tasteId);
 
   return (
-    <>
-    <Header tastes={tastes} variant="sm" />
-      <main className="flex flex-col py-8 px-8 md:px-24 gap-16">
+    <div className="p-6">
+      <Header tastes={tastes} />
+      <main className="flex flex-col py-8 px-8 md:px-52 gap-16">
         <Recipes title={taste} recipes={recipes} />
       </main>
-    </>
+    </div>
   );
 }
 
