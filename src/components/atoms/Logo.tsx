@@ -13,15 +13,15 @@ interface LogoStyle {
 
 const LOGO_STYLES: Record<LogoVersion, LogoStyle> = {
   "sm": {
-    containerStyle: "flex items-baseline justify-start",
+    containerStyle: "flex items-baseline justify-start leading-[1.2]",
     logoVariant: "logo-sm",
     tagVariant: "logo-tag-sm"
   },
   "bg": {
-    containerStyle: "flex flex-col items-start md:flex-row md:items-baseline md:w-full",
+    containerStyle: "flex flex-col items-start md:flex-row md:items-baseline md:w-full leading-[1.2]",
     logoVariant: "logo-bg",
     tagVariant: "logo-tag-bg",
-    margin: "-mt-10 md:mt-0",
+    margin: "-mt-10",
   },
 };
 
