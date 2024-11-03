@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import NavLink from '@/components/atoms/NavLink';
 import { Taste } from '@/types'; // Import the Taste type
@@ -19,13 +19,26 @@ const Navigation: React.FC<NavigationProps> = ({ tastes, variant = 'row' }) => {
     setIsOpen(!isOpen);
   };
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    // Cleanup quando il componente viene smontato
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
   return (
-    <div>
+    <div className='contents'>
       {/* Navigazione per schermi grandi */}
-      <nav className={`hidden md:flex ${variant === 'row' ? 'flex-row justify-between' : 'flex-col justify-between items-center w-full my-2'}`}>
+      <nav className={`hidden md:flex ${variant === 'row' ? 'flex-row justify-between' : 'flex-1 flex-col items-center w-full justify-around'}`}>
         {tastes.map((taste) => (
           <NavLink
-            active={pathname === `/${taste.taste}`}
+            active={pathname.startsWith(`/${taste.taste}`)}
             key={taste.id}
             href={taste.taste}
             variant={variant === 'row' ? 'sm' : 'bg'}
@@ -44,7 +57,7 @@ const Navigation: React.FC<NavigationProps> = ({ tastes, variant = 'row' }) => {
               initial={{ rotate: 0, y: 0 }}
               animate={{
                 rotate: isOpen ? 45 : 0,
-                y: isOpen ? 7 : 0
+                y: isOpen ? 6 : 0
               }}
               transition={{ duration: 0.3 }}
               className="w-6 h-0.5 bg-black mb-1"
@@ -73,7 +86,7 @@ const Navigation: React.FC<NavigationProps> = ({ tastes, variant = 'row' }) => {
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3 }}
-            className="fixed inset-0 w-screen h-screen bg-white flex justify-center items-center z-40"
+            className="fixed inset-0 w-screen overflow-hidden h-screen bg-white flex justify-center items-center z-40"
           >
             <ul className="flex flex-col items-center space-y-4">
               {tastes.map((taste) => (
