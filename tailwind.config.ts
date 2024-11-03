@@ -23,68 +23,68 @@ const config: Config = {
   },
   plugins: [
     plugin(function ({ addUtilities, theme }) {
-      const md = theme('screens.md')
+      const lg = theme('screens.lg')
 
       const newUtilities = {
         '.text-logo-bg': {
-          fontSize: '90px',
-          [`@media (min-width: ${md})`]: { fontSize: '250px' },
+          fontSize: '110px',
+          [`@media (min-width: ${lg})`]: { fontSize: '250px' },
         },
         '.text-logo-sm': {
           fontSize: '40px',
-          [`@media (min-width: ${md})`]: { fontSize: '40px' },
+          [`@media (min-width: ${lg})`]: { fontSize: '40px' },
         },
         '.text-logo-tag-bg': {
-          fontSize: '80px',
-          [`@media (min-width: ${md})`]: { fontSize: '180px' },
+          fontSize: '90px',
+          [`@media (min-width: ${lg})`]: { fontSize: '180px' },
         },
         '.text-logo-tag-sm': {
           fontSize: '30px',
-          [`@media (min-width: ${md})`]: { fontSize: '30px' },
+          [`@media (min-width: ${lg})`]: { fontSize: '30px' },
         },
         '.text-nav-bg': {
           fontSize: '40px',
-          [`@media (min-width: ${md})`]: { fontSize: '40px' },
+          [`@media (min-width: ${lg})`]: { fontSize: '40px' },
         },
         '.text-nav-sm': {
           fontSize: '22px',
-          [`@media (min-width: ${md})`]: { fontSize: '22px' },
+          [`@media (min-width: ${lg})`]: { fontSize: '22px' },
         },
         '.text-h1': {
           fontSize: '90px',
-          [`@media (min-width: ${md})`]: { fontSize: '112px' },
+          [`@media (min-width: ${lg})`]: { fontSize: '112px' },
         },
         '.text-h2': {
-          fontSize: '30px',
-          [`@media (min-width: ${md})`]: { fontSize: '60px' },
+          fontSize: '50px',
+          [`@media (min-width: ${lg})`]: { fontSize: '80px' },
         },
         '.text-h3': {
           fontSize: '30px',
-          [`@media (min-width: ${md})`]: { fontSize: '40px' },
+          [`@media (min-width: ${lg})`]: { fontSize: '40px' },
         },
         '.text-h4': {
           fontSize: '30px',
-          [`@media (min-width: ${md})`]: { fontSize: '48px' },
+          [`@media (min-width: ${lg})`]: { fontSize: '48px' },
         },
         '.text-h5': {
-          fontSize: '30px',
-          [`@media (min-width: ${md})`]: { fontSize: '28px' },
+          fontSize: '18px',
+          [`@media (min-width: ${lg})`]: { fontSize: '28px' },
         },
         '.text-base': {
           fontSize: '18px',
-          [`@media (min-width: ${md})`]: { fontSize: '26px' },
+          [`@media (min-width: ${lg})`]: { fontSize: '26px' },
         },
         '.text-sm': {
-          fontSize: '18px',
-          [`@media (min-width: ${md})`]: { fontSize: '22px' },
+          fontSize: 'clamp(13px, 3vw, 18px)',
+          [`@media (min-width: ${lg})`]: { fontSize: '22px' },
         },
         '.text-xs': {
           fontSize: '12px',
-          [`@media (min-width: ${md})`]: { fontSize: '12px' },
+          [`@media (min-width: ${lg})`]: { fontSize: '12px' },
         },
         '.text-xxs': {
-          fontSize: '8px',
-          [`@media (min-width: ${md})`]: { fontSize: '12px' },
+          fontSize: '10px',
+          [`@media (min-width: ${lg})`]: { fontSize: '12px' },
         },
       }
 

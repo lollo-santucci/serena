@@ -35,7 +35,7 @@ const Navigation: React.FC<NavigationProps> = ({ tastes, variant = 'row' }) => {
   return (
     <div className='contents'>
       {/* Navigazione per schermi grandi */}
-      <nav className={`hidden md:flex ${variant === 'row' ? 'flex-row justify-between' : 'flex-1 flex-col items-center w-full justify-around'}`}>
+      <nav className={`hidden lg:flex ${variant === 'row' ? 'flex-row justify-between' : 'flex-1 flex-col items-center w-full justify-around'}`}>
         {tastes.map((taste) => (
           <NavLink
             active={pathname.startsWith(`/${taste.taste}`)}
@@ -49,7 +49,7 @@ const Navigation: React.FC<NavigationProps> = ({ tastes, variant = 'row' }) => {
       </nav>
 
       {/* Hamburger Menu per dispositivi mobili */}
-      <div className="md:hidden">
+      <div className="lg:hidden">
         <button onClick={toggleMenu} className="focus:outline-none z-50 relative">
           {/* Div quadrato con sfondo #B0FF32 */}
           <div className="w-14 h-14 bg-[#B0FF32] flex flex-col justify-center items-center">

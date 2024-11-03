@@ -7,7 +7,7 @@ interface StatItemProps {
 
 const StatItem: React.FC<StatItemProps> = ({ title, value }) => {
   return (
-    <div className="flex w-[18ch] p-[25px_10px] flex-col justify-center items-center gap-[20px] self-stretch border border-black/50">
+    <div className="flex w-[10ch] lg:w-[18ch] p-[15px_5px] lg:p-[25px_10px] flex-col justify-center items-center gap-[20px] self-stretch border border-black/50">
       <Typography variant="xxs">
         {title}
       </Typography>

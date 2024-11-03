@@ -18,7 +18,7 @@ const LOGO_STYLES: Record<LogoVersion, LogoStyle> = {
     tagVariant: "logo-tag-sm"
   },
   "bg": {
-    containerStyle: "flex flex-col items-start md:flex-row md:items-baseline md:w-full leading-[1.2]",
+    containerStyle: "flex flex-col items-start lg:flex-row lg:items-baseline lg:w-full leading-[1.2]",
     logoVariant: "logo-bg",
     tagVariant: "logo-tag-bg",
     margin: "-mt-10",
@@ -32,7 +32,7 @@ interface LogoProps {
 
 const Logo: React.FC<LogoProps> = ({ version = "sm", space = "space" }) => {
   const { containerStyle, logoVariant, tagVariant, margin } = LOGO_STYLES[version];
-  const finalContainerStyle = space === "no-space" ? `${containerStyle} md:justify-center` : `${containerStyle} md:justify-between`;
+  const finalContainerStyle = space === "no-space" ? `${containerStyle} lg:justify-center` : `${containerStyle} lg:justify-between`;
 
   return (
     <div className={finalContainerStyle}>

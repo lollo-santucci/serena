@@ -11,7 +11,7 @@ interface StepProps {
 
 const Step: React.FC<StepProps> = ({ n, step, images }) => {
     return (
-        <div className="flex flex-col mx-6 text-justify">
+        <div className="flex flex-col mr-3 lg:mx-6 text-justify">
             <Typography variant="h5" className="flex items-start">
                 <span className="mr-2">{n}.</span>
                 <div className="flex flex-col gap-3">

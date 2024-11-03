@@ -11,7 +11,7 @@ interface RecipesProps {
 const Recipes: React.FC<RecipesProps> = ({ variant = "list", title, recipes }) => {
     const isRecommended = variant === "recommended";
     return (
-        <section className={`flex flex-col ${isRecommended ? "items-start gap-2" : "items-center w-full gap-6"} `}>
+        <section className={`flex flex-col ${isRecommended ? "items-start gap-2 w-full" : "items-center gap-6"} `}>
             <Typography variant={`${isRecommended ? "h3" : "h1"}`}>{title}</Typography>
             {recipes.map((recipe, index) =>
                 <RecipeItem

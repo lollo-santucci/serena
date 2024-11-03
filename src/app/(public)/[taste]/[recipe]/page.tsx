@@ -19,7 +19,7 @@ export default async function Recipe({ params }: { params: RecipePageProps }) {
   return (
     <div className="p-6">
       <Header tastes={tastes} />
-      <main className="flex flex-col py-8 px-12 md:px-52 gap-16">
+      <main className="flex flex-col py-8 lg:px-52 gap-16">
         <Headline
           title={recipe.name}
           stats={[
@@ -28,8 +28,8 @@ export default async function Recipe({ params }: { params: RecipePageProps }) {
             { title: "Porzioni", value: `${recipe.serves}` },
           ]}
         />
-        <section className="flex flex-col md:flex-row justify-between items-center md:mx-12">
-        <div className="relative h-[50vh] w-[50vh] aspect-square">
+        <section className="flex flex-col lg:flex-row justify-between items-center lg:mx-12 gap-16">
+        <div className="relative h-[300px] w-[300px] lg:h-[50vh] lg:w-[50vh] aspect-square">
             <Image
               src={recipe.imagePath ?? "/imgs/placeholder.png"}
               alt={recipe.name}
@@ -43,7 +43,7 @@ export default async function Recipe({ params }: { params: RecipePageProps }) {
         <section className="flex flex-col justify-between items-center">
           <Steps steps={steps} tip={tips[0]} />
         </section>
-        <section className="flex flex-col md:flex-row justify-between items-center">
+        <section className="flex flex-col lg:flex-row justify-between items-center gap-8">
           <List variant="tool" tools={tools} />
           <Recipes variant="recommended" title="Altre ricette" recipes={suggestions} />
         </section>

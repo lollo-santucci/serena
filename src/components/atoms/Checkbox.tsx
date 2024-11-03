@@ -23,14 +23,14 @@ const Checkbox: React.FC = () => {
 
       {/* Custom styled checkbox */}
       <span
-        className={`w-6 h-6 border-2 border-black flex items-center justify-center cursor-pointer transition-colors duration-200 ${
+        className={`w-4 lg:w-6 h-4 lg:h-6 border-2 border-black flex items-center justify-center cursor-pointer transition-colors duration-200 ${
           isChecked ? 'bg-black' : 'bg-white'
         }`}
         onClick={handleCheckboxChange} // Only handle click here
       >
         {isChecked && (
           <svg
-            className="w-6 h-6 text-white"
+            className="w-4 lg:w-6 h-4 lg:h-6 text-white"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"

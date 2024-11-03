@@ -32,15 +32,15 @@ const RecipeItem: React.FC<RecipeProps> = ({ variant = "list", imgPath, title, s
                 </div>
                 <div className="z-10 uppercase">
                     <a href={`${pathname}/${title}`}>
-                        <Typography variant={isRecommended ? "h4" : "h1"} className="transform transition-transform duration-300 hover:scale-105">{title}</Typography>
+                        <Typography variant={isRecommended ? "h4" : "h2"} className="transform transition-transform duration-300 hover:scale-105">{title}</Typography>
                     </a>
                 </div>
             </div>
             <div className={`${isRecommended ? "hidden" : "block"}`}>
-                <div className="md:hidden">
+                <div className="lg:hidden">
                     <StatItem title={stats[0].title} value={stats[0].value} />
                 </div>
-                <div className="hidden md:block">
+                <div className="hidden lg:block">
                     <Stats stats={stats} />
                 </div>
             </div>
