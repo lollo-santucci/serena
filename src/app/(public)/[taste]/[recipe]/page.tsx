@@ -8,6 +8,8 @@ import List from "@/components/organisms/List";
 import Steps from "@/components/organisms/Steps";
 import Recipes from "@/components/organisms/Recipes";
 
+export const dynamic = 'force-dynamic';
+
 interface RecipePageProps {
   recipe: string;
 }
