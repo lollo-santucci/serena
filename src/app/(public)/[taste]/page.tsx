@@ -5,6 +5,8 @@ import { fetchRecipes } from "@/lib/api/recipes";
 import Header from "@/components/organisms/Header";
 import Recipes from "@/components/organisms/Recipes";
 
+export const dynamic = 'force-dynamic';
+
 interface TastePageProps {
   taste: string;
 }
