@@ -51,8 +51,7 @@ const Navigation: React.FC<NavigationProps> = ({ tastes, variant = 'row' }) => {
       {/* Hamburger Menu per dispositivi mobili */}
       <div className="lg:hidden">
         <button onClick={toggleMenu} className="focus:outline-none z-50 relative">
-          {/* Div quadrato con sfondo #B0FF32 */}
-          <div className="w-14 h-14 bg-[#B0FF32] flex flex-col justify-center items-center">
+          <div className="w-14 h-14 bg-[#30AFF2] flex flex-col justify-center items-center">
             <motion.div
               initial={{ rotate: 0, y: 0 }}
               animate={{
